@@ -1,0 +1,12 @@
+.cookie-right-button-part .cookie-btn-one,
+.cookie-right-button-part .cookie-btn-two {
+    width: 150px;
+}
+
+.CookieBanner.fixed-bottom  {
+    padding-right: 0;
+}
+
+.cookie-img-right img {
+    margin-left: 40px;
+}
