@@ -20,7 +20,7 @@ class SMARTCB_WP_React_Settings_Rest_Route {
     function smartcb_create_rest_rounte() {
 
         register_rest_route( 'smartcb/v1', '/settings', array(
-            'methods'  => WP_REST_Server::EDITABLE, // For POST requests
+            'methods'  => WP_REST_Server::EDITABLE, 
             'callback' => [ $this, 'smartcb_save_settings'],
             'permission_callback' => function () {
                 return current_user_can( 'manage_options' );
@@ -28,11 +28,9 @@ class SMARTCB_WP_React_Settings_Rest_Route {
         ) );
     
         register_rest_route( 'smartcb/v1', '/settings', array(
-            'methods'  => WP_REST_Server::READABLE, // For GET requests
+            'methods'  => WP_REST_Server::READABLE, 
             'callback' => [ $this,'smartcb_get_settings'],
-            'permission_callback' => function () {
-                return true;
-            },
+            'permission_callback' => '__return_true', // public access this route
         ) );
     }
 

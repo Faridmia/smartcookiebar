@@ -10,8 +10,8 @@ Description: SmartCookieBar is a customizable WordPress plugin for displaying el
 Version: 1.0.0
 Requires at least: 6.4
 Requires PHP: 7.4
-Author: faridmia
-Author URI: https://profiles.wordpress.org/faridmia/
+Author: zamzamcoders
+Author URI: https://profiles.wordpress.org/zamzamcoders/
 License: GPL v2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Text Domain: smartcookiebar
@@ -27,12 +27,6 @@ define( 'SMARTCB_VERSION', '1.0.0' );
 define ( 'SMARTCB_COOKIE_PATH', trailingslashit( plugin_dir_path( __FILE__ ) ) );
 define ( 'SMARTCB_COOKIE_URL', trailingslashit( plugins_url( '/', __FILE__ ) ) );
 define('SMARTCB_COOKIE_IMG', SMARTCB_COOKIE_URL );
-
-add_action( "init", "smartcb_load_textdomain" );
-function smartcb_load_textdomain()
-{
-    load_plugin_textdomain('smartcookiebar', false, dirname(plugin_basename(__FILE__)) . '/i18n/languages');
-}
 
 /**
  * Loading Necessary Scripts
@@ -93,6 +87,16 @@ function smartcb_cookie_banner_mark_func() {
 }
 
 add_action('wp_footer', 'smartcb_cookie_banner_mark_func');
+add_action('admin_head', 'smartcb_disable_other_plugin_notices' );
+    
+function smartcb_disable_other_plugin_notices() {
+    $current_screen = get_current_screen();
+    
+    if ($current_screen && $current_screen->id === 'smartcb-settings') {
+        remove_all_actions('admin_notices'); // Remove notices from admin_notices
+        remove_all_actions('all_admin_notices'); // Remove notices from all_admin_notices
+    }
+}
 
 
 require_once SMARTCB_COOKIE_PATH . 'classes/class-create-admin-menu.php';

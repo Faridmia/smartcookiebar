@@ -1,10 +1,10 @@
 === SmartCookieBar ===
-Contributors: faridmia
+Contributors: zamzamcoders
 Tags: cookie banner, cookie consent, cookie notice, privacy
 Requires at least: 6.4
 Tested up to: 6.7.1
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -30,6 +30,11 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 * Absolutely! The plugin is optimized for mobile devices to provide a superior shopping experience on any device.
 
 ## Changelog ##
+
+= 1.0.1 - 2025-01-12 =
+
+* Added: Admin notice remove
+* Css fix
 
 = 1.0.0 =
 * Initial release
